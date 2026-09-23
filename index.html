@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>гра</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="power">
+    <div class="quiz-box">
+  <!-- Початковий екран -->
+  <div id="start-screen" class="screen">
+    <h2>Valorant бойове завдання</h2>
+    <img id="start-gif" class="quiz-gif" src="" alt="Start GIF" />
+    <p style="font-size: 30px;">Аня не підведи</p>
+    <button id="start-btn" class="main-btn">Старт</button>
+  </div>
+
+
+  <div id="quiz-screen" class="screen hidden">
+    <div class="quiz-header">
+      <span id="question-number">Запитання 1/15</span>
+    </div>
+    
+
+    <img id="question-gif" class="quiz-gif" src="" alt="Question GIF" />
+
+    <h2 id="question">.....</h2>
+    
+    <div id="options-container" class="options-container"></div>
+
+    <button id="submit-btn" class="main-btn">сабміт</button>
+  </div>
+
+
+  <div id="result-screen" class="screen hidden">
+    <h2>Результекс</h2>
+    <img id="result-gif" class="quiz-gif" src="" alt="Result GIF" />
+    <p id="result-text">пазор</p>
+    
+
+    <div id="summary-container" class="summary-container"></div>
+
+    <button id="restart-btn" class="main-btn">апять</button>
+  </div>
+</div>
+    </div>
+    <div class="png-two"></div>
+    <div class="main-container"></div>
+
+
+    </div>
+    <script src="./script.js"> </script>
+</body>
+</html>
