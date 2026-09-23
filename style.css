@@ -204,3 +204,17 @@ body{
   font-size: 13px;
   margin-top: 3px;
 }
+
+
+
+
+
+
+
+.quiz-gif.stretch-square {
+  width: 250px !important;   
+  height: 250px !important;    
+  object-fit: fill !important; 
+  display: block !important;  
+  margin: 0 auto !important;  
+}

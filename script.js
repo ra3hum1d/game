@@ -8,7 +8,8 @@ const questionGifsPool = [
   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eXdqdngzYXU3NG53d3BwNGNwZzBsY3hwbzFzcjNzOTNpMTV1azByaSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ISJqHsCJgkFYTewi3k/giphy.gif",
   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3c3lscm50eXYybXptYjY3c3pxZ3hrYzluYWR3cHcyNnN6aDdqOTB2MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TQOTjlzMHRmoqF27CC/giphy.gif",
   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3N3hjd3Z3eXQ5aXFhc2xkYTR3b2NydmR1Y3JyaXFiejJlZDV2cWh3OCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/in21AvD0gp3wwhoovW/giphy.gif",
-  "https://media.tenor.com/I46_U4bkk5gAAAA1/reyna-valorant-valorant.webp"
+  "https://media.tenor.com/I46_U4bkk5gAAAA1/reyna-valorant-valorant.webp",
+  "https://i2.imgflip.com/b1vfbl.gif" // Робоче посилання
 ];
 
 const resultGifs = [
@@ -99,17 +100,14 @@ const quizData = [
   }
 ];
 
-// Елементи екранів
 const startScreen = document.getElementById("start-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
 
-// Елементи гіфок
 const startGifEl = document.getElementById("start-gif");
 const questionGifEl = document.getElementById("question-gif");
 const resultGifEl = document.getElementById("result-gif");
 
-// Кнопки та текст
 const startBtn = document.getElementById("start-btn");
 const submitBtn = document.getElementById("submit-btn");
 const restartBtn = document.getElementById("restart-btn");
@@ -124,7 +122,6 @@ let score = 0;
 let selectedOption = null;
 let isAnswerChecked = false;
 
-// Початкова гіфка
 startGifEl.src = getRandomGif(startGifs);
 
 startBtn.addEventListener("click", () => {
@@ -140,7 +137,15 @@ function loadQuiz() {
   isAnswerChecked = false;
   submitBtn.innerText = "Відповісти";
   
-  questionGifEl.src = getRandomGif(questionGifsPool);
+  const selectedGif = getRandomGif(questionGifsPool);
+  questionGifEl.src = selectedGif;
+
+  // Перевірка: якщо випала 5-та гіфка у списку (індекс 4) — розтягуємо її
+  if (selectedGif === questionGifsPool[4]) {
+    questionGifEl.classList.add("stretch-square");
+  } else {
+    questionGifEl.classList.remove("stretch-square");
+  }
 
   const currentQuizData = quizData[currentQuiz];
   questionNumberEl.innerText = `Запитання ${currentQuiz + 1}/${quizData.length}`;
@@ -174,7 +179,7 @@ function deselectOptions() {
 submitBtn.addEventListener("click", () => {
   if (!isAnswerChecked) {
     if (selectedOption === null) {
-      alert("Будь ласка, оберіть варіант відповіді!");
+      alert("Отвіть!");
       return;
     }
     checkAnswer();
@@ -198,12 +203,12 @@ function checkAnswer() {
 
     if (index === correctIndex) {
       btn.classList.add("correct");
-      iconSpan.innerText = " ✓";
+      iconSpan.innerText = " правільна";
     }
 
     if (index === selectedOption && selectedOption !== correctIndex) {
       btn.classList.add("wrong");
-      iconSpan.innerText = " ✗";
+      iconSpan.innerText = " ніт";
     }
   });
 
@@ -212,9 +217,9 @@ function checkAnswer() {
   }
 
   if (currentQuiz === quizData.length - 1) {
-    submitBtn.innerText = "Переглянути результати";
+    submitBtn.innerText = "результати";
   } else {
-    submitBtn.innerText = "Наступне запитання";
+    submitBtn.innerText = "некст";
   }
 }
 
