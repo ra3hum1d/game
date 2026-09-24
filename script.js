@@ -9,7 +9,6 @@ const questionGifsPool = [
   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3c3lscm50eXYybXptYjY3c3pxZ3hrYzluYWR3cHcyNnN6aDdqOTB2MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TQOTjlzMHRmoqF27CC/giphy.gif",
   "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3N3hjd3Z3eXQ5aXFhc2xkYTR3b2NydmR1Y3JyaXFiejJlZDV2cWh3OCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/in21AvD0gp3wwhoovW/giphy.gif",
   "https://media.tenor.com/I46_U4bkk5gAAAA1/reyna-valorant-valorant.webp",
-  "https://i2.imgflip.com/b1vfbl.gif" // Робоче посилання
 ];
 
 const resultGifs = [
